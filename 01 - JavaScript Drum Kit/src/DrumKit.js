@@ -1,6 +1,8 @@
 document.onkeydown = function(event) {
   audio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
   if (!audio) return;
+  // "Rewind" audio file for quick repeated hits of same button
+  audio.currentTime = 0;
   audio.play();
 }
 
