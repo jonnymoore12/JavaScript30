@@ -61,32 +61,34 @@
       background:black;
       position: absolute;
       top:50%;
+      transform: rotate(90deg);
       transform-origin: 100%;
     }
 
     .hour-hand {
       z-index: 98;
       background: red;
-      transform: rotate(180deg);
+      /*transform: rotate(180deg);*/
       height:6px;
     }
 
     .min-hand {
       z-index: 99;
       background: green;
-      transform: rotate(180deg);
+      /*transform: rotate(90deg);*/
       height:4px;
     }
 
     .second-hand {
       z-index: 100;
       background: yellow;
-      transform: rotate(180deg);
+      /*transform: rotate(180deg);*/
       height:2px;
     }
 
   </style>
 
   <script src='src/Clock.js'></script>
+  <script src='./../jquery-3.1.0.js'></script>
 </body>
 </html>
