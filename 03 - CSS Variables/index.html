@@ -22,6 +22,23 @@
 
   <style>
 
+    /*Declare CSS variables:
+    (this will match the document's root element (the HTML element))*/
+    :root {
+      --spacing: 50px;
+      --blur: 2px;
+      --baseColor: red;
+    }
+    /*Use CSS variables:*/
+    .hl {
+      color: var(--baseColor);
+    }
+    img {
+      padding: var(--spacing);
+      background: var(--baseColor);
+      filter: blur(var(--blur));
+    }
+
     /*
       misc styles, nothing to do with CSS variables
     */
