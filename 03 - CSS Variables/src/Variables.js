@@ -1,5 +1,7 @@
 controls = document.querySelectorAll('.controls input');
 controls.forEach(control => control.addEventListener('change', updateDisplay));
+controls.forEach(control => control.addEventListener('mousemove', updateDisplay));
+
 
 function updateDisplay() {
   console.log(this);
