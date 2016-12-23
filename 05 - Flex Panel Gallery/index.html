@@ -24,6 +24,8 @@
     .panels {
       min-height:100vh;
       overflow: hidden;
+      /*Flex is what this exercise is all about:*/
+      display: flex;
     }
 
     .panel {
@@ -41,6 +43,13 @@
       font-size: 20px;
       background-size:cover;
       background-position:center;
+      flex: 1;
+      /*Added these two lines:*/
+      align-content: center;
+      justify-content: center;
+      /*These next two lines get our <p> content stacked and stacked vertically:*/
+      display: flex;
+      flex-direction: column;
     }
 
 
@@ -50,10 +59,18 @@
     .panel4 { background-image:url(https://source.unsplash.com/ITjiVXcwVng/1500x1500); }
     .panel5 { background-image:url(https://source.unsplash.com/3MNzGlQM7qs/1500x1500); }
 
+    /** here represents children of .panel (i.e. the <p>s)*/
     .panel > * {
       margin:0;
       width: 100%;
       transition:transform 0.5s;
+      border: 1px solid red;
+      
+      align-items: center;
+      justify-content: center;
+
+      display: flex;
+      flex: 1 0 auto;
     }
 
     .panel p {
