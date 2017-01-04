@@ -31,6 +31,22 @@ function findMatch(searchString, cities) {
   });
 }
 
+function displayMatch() {
+  arrayOfMatches = findMatch(this.value, cities);
+  html = arrayOfMatches.map(place => {
+    return `<li>
+      <span class="name">${place.city}, ${place.state}</span>
+      <span class="population">${place.population}</span>
+    </li>`
+  }).join("");
+  suggestions.innerHTML = html;
+}
+
+const input = document.querySelector('.search');
+input.addEventListener('keyup', displayMatch);
+const suggestions = document.querySelector('.suggestions');
+
+
 </script>
   </body>
 </html>
