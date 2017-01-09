@@ -16,30 +16,57 @@
       p.style.color = '#BADA55';
       p.style.fontSize = '50px';
     }
+    const p = document.querySelector('p');
 
     // Regular
+    console.log('Yo, this is the most basic trick in the book');
 
     // Interpolated
+    console.log('We can use interpolation like %s', 'so');
+    let word = 'so';
+    console.log(`Or alternatively interpolate like ${word}`);
 
     // Styled
+    console.log('%c Styled!', 'font-size: 50px; color: red;');
 
     // warning!
+    console.warn('Too much code hurts my brain');
 
     // Error :|
+    console.error("Oh no, why isn't it working?!");
 
     // Info
+    console.info('Some sharks can live longer than 400 years');
 
     // Testing
+    console.assert((1 === 2), 'Wrong!');
 
     // clearing
+    console.clear();
 
     // Viewing DOM Elements
+    // We get a (directory?) of all the fun stuff in p:
+    console.dir(p);
 
     // Grouping together
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`${dog.name} is a friendly chappy`);
+      console.log(`${dog.name} is ${7 * dog.age} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    });
 
     // counting
+    console.count('Lionel');
+    console.count('Richie');
+    console.count('Lionel');
+    console.count('Lionel');
+    console.count('Richie');
+    console.count('Lionel');
+    console.count('Lionel');
 
-    // timing
+    // table
+    console.table(dogs);
 
   </script>
 </body>
