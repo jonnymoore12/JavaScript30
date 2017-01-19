@@ -66,7 +66,7 @@
   -->
   <div class="inbox">
     <div class="item">
-      <input type="checkbox">
+      <input type="checkbox" class="box">
       <p>This is an inbox layout.</p>
     </div>
     <div class="item">
@@ -104,6 +104,36 @@
   </div>
 
 <script>
+  const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+  // Click works happily for selections of checkboxes:
+  checkboxes.forEach(checkbox => checkbox.addEventListener('click', magicHappens));
+
+  // previousChecked can be used with whatever we are newly clicking to form a
+  // chain of checked boxes:
+  let previousChecked;
+
+  function magicHappens(event) {
+    let inBetween = false;
+
+    // if shift is being held down and someone is checking the box NOT unchecking:
+    if (event.shiftKey && this.checked) {
+      checkboxes.forEach(checkbox => {
+        // 'this' refers to the checkbox we are currently clicking NOT each one
+        // in the loop. So inBetween will be true between the previously checked
+        // checkBox and the newly cliked one (forming our chain):
+        if (checkbox == this || checkbox == previousChecked) {
+          inBetween = !inBetween;
+        }
+        if (inBetween) {
+          checkbox.checked = true;
+        }
+      });
+    }
+
+    // "this" refers to the checkbox which triggered the event:
+    previousChecked = this;
+  }
+
 </script>
 </body>
 </html>
