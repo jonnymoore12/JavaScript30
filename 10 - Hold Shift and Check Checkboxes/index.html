@@ -121,6 +121,7 @@
         // 'this' refers to the checkbox we are currently clicking NOT each one
         // in the loop. So inBetween will be true between the previously checked
         // checkBox and the newly cliked one (forming our chain):
+        // (The start and end checkboxes of our chain are this and previousChecked):
         if (checkbox == this || checkbox == previousChecked) {
           inBetween = !inBetween;
         }

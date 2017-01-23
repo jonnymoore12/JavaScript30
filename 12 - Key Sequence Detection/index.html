@@ -7,6 +7,20 @@
 </head>
 <body>
 <script>
+  const password = "konami";
+  const pLength = password.length
+  let passAttempt = [];
+
+  document.onkeypress = function(e) {
+    passAttempt.push(e.key);
+    if (passAttempt.length > pLength) {
+      // Pops off the FIRST element in our attempt array:
+      passAttempt.shift();
+    }
+    if (passAttempt.join("") == password) {
+      alert("You typed the magic password. Webpage should do COOL STUFF!");
+    }
+  }
 </script>
 </body>
 </html>
