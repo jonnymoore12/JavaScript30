@@ -7,44 +7,59 @@
 <body>
 
   <script>
-    // start with strings, numbers and booleans
+    // JavaScript has five primitive types :Numbers, String, Boolean,
+    // Undefined and Null (although it is still possible to construct, say, a
+    // String as on object using the String constructor).
 
-    // Let's say we have an array
+    // If we duplicate any variables holding primitive types, we get two separate
+    // variables and so changing one does not affect the other.
+    let x = 'hello';
+    let y = x;
+    x = 'goodbye';
+    console.log(x, y);
+
+
+
+    // But for non-primitive types (anything other than the five types listed
+    // above, including arrays (Objects)), duplication only creates an ADDITIONAL
+    // REFERENCE with both references pointing to the same object. Any change to
+    // one will affect (the other):
     const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+    const team = players;
+    players[3] = 'Dave';
+    console.log(players, team);
 
-    // and we want to make a copy of it.
+    // SOME SOLUTIONS FOR ARRAYS: (if this is not what you're after):
 
-    // You might think we can just do something like this:
+    // slice() with no parameters:
+    const films = ['Blade Runner', 'Vertigo', 'Persona'];
+    const movies = films.slice();
+    films[2] = 'The Seventh Seal';
+    console.log(films, movies);
 
-    // however what happens when we update that array?
+    // or spread:
+    const films2 = ['Annie Hall', 'Terminator 2', 'Birdman'];
+    const movies2 = [...films2];
+    films2[2] = 'Amores Perros';
+    console.log(films2, movies2);
 
-    // now here is the problem!
+    // or there's even Array.from(films);
 
-    // oh no - we have edited the original array too!
 
-    // Why? It's because that is an array reference, not an array copy. They both point to the same array!
 
-    // So, how do we fix this? We take a copy instead!
+    // In terms of legit objects, we can use Object.assign:
+    // First argument is a blank object, Second argument is the object we're
+    // filling it with, Third arguement is any changes including new variables
+    // if you so wish:
+    const dude = {
+      name: 'Jeremy',
+      footballTeam: 'Chelsea'
+    }
 
-    // one day
+    const newDude = Object.assign({}, dude, {name: 'Mark', teeth: 'Shiny white'});
+    console.log(dude.name, newDude.name);
 
-    // or create a new array and concat the old one in
-
-    // or use the new ES6 Spread
-
-    // now when we update it, the original one isn't changed
-
-    // The same thing goes for objects, let's say we have a person object
-
-    // with Objects
-
-    // and think we make a copy:
-
-    // how do we take a copy instead?
-
-    // We will hopefully soon see the object ...spread
-
-    // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+    // Things to note - this is only 1 level deep - both for Arrays and Objects.
 
   </script>
 
